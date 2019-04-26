@@ -1,5 +1,7 @@
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileReader;
+import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -12,8 +14,9 @@ public class ReadFile {
      * @return un Hashmap <String, Arraylist <Double> >
      * @throws Exception
      */
-    public static HashMap readVectors() throws Exception {
-        FileReader fr = new FileReader("/Users/adele/Documents/GitHub/Geenson_Game/w2v_final3");
+    public HashMap readVectors(String filePath) throws Exception {
+        File file = new File(filePath + "/w2v_final3");
+        FileReader fr = new FileReader(file);
         BufferedReader br = new BufferedReader(fr);
         String line;
         HashMap<String , ArrayList<Double>> wordsVectors = new HashMap<String , ArrayList<Double>>();
@@ -31,5 +34,9 @@ public class ReadFile {
 
         fr.close();
         return wordsVectors;
+    }
+
+    public static void main(String[] args) throws Exception {
+        
     }
 }
