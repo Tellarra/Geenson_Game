@@ -1,6 +1,6 @@
 import java.util.ArrayList;
 import java.util.HashMap;
-import src.utilities.ReadFile;
+import src.utilities.*;
 public class Main {
     public static void main(String[] args) throws Exception {
         String filePath = System.getProperty("user.dir");
@@ -11,6 +11,5 @@ public class Main {
         } catch (Exception e) {
             System.out.println("Votre fichier w2v_final3 doit être à la racine du projet");
         }
-        
     }
 }
