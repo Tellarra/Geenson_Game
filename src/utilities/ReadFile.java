@@ -5,7 +5,7 @@ import java.io.FileReader;
 import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.HashMap;
-
+//import src.utilities.*;
 
 public class ReadFile {
     /**
@@ -36,9 +36,5 @@ public class ReadFile {
 
         fr.close();
         return wordsVectors;
-    }
-
-    public static void main(String[] args) throws Exception {
-        
     }
 }
