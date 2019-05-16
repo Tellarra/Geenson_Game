@@ -1,7 +1,7 @@
 package src.utilities;
 import java.lang.Math.*;
 
-protected static class UtilVector {
+public class UtilVector {
 	// Méthodes
 	
 	//Renvoit le vecteur résultant de l'addition de v1 et v2
@@ -45,6 +45,7 @@ protected static class UtilVector {
 			sum = sum + v1[i];
 		}
 		result = sum / v1.length;
+		System.out.println("result" + result);
 		return result;
 	}
 	

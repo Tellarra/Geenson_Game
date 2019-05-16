@@ -47,7 +47,7 @@ public class Main {
         ReadFile rf = new ReadFile();
         wordsVectors = rf.readVectors(filePath);
         String wordToGuess = game.getRandWord(wordsVectors);
-        game.showWords(wordToGuess);        
-        
+        game.showWords(wordToGuess, wordsVectors);      
+
     }
 }

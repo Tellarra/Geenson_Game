@@ -3,6 +3,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Random;
 import java.util.Scanner;
+import java.util.TreeMap;
+
 import src.utilities.*;
 public class GameOn {
     int nbPlayers = 0;
@@ -37,7 +39,7 @@ public class GameOn {
         return randomName;
     }
 
-    public void showWords(String wordToGuess) {
+    public void showWords(String wordToGuess, HashMap<String , ArrayList<Double>> wordsList) {
         Scanner sc = new Scanner(System.in);
         System.out.println("Donnez 3 indices");
         String [] clues = new String[3];
@@ -46,7 +48,35 @@ public class GameOn {
             System.out.println(clues[i]);
         }
         sc.close();
-        getMostSimilare(clues);
+        //double[] listVecto = wordsList.toArray(new double[wordsList.size()]);
+        
+        double moyenne = 0;
+        //Prend les indices et pour chaque indice fait un tableau de double
+        for (String clue : clues) {
+            double[] listVec = new double[100];
+            for(int i = 0; i < listVec.length; i++) {
+                listVec[i] = wordsList.get(clue).get(i);
+            }
+            //double [] clueList = wordsList.get(clue);
+            moyenne += UtilVector.meanVec(listVec);
+            
+        }
+        moyenne = moyenne/3;
+        System.out.println(moyenne);
+
+        
+
+        /* TreeMap<String, Double> tp = new TreeMap<String, Double>();
+        double moyenne = 0;
+        for(int i = 0; i < wordsList.size(); i++) {
+            moyenne += UtilVector.meanVec(wordsList.get(clues[i]));
+        }
+         
+        for (Key key : wordsList.values()) {
+            UtilVector.cosVec(moyenne, wordsList.get(key));
+            
+        } */
+        //getMostSimilare(clues, wordsList);
         
     }
 
@@ -55,9 +85,14 @@ public class GameOn {
         //UtilVector.moy()
         //Tab [10][2]
         //for(int i = 0; i < tab.length; i++) {
-            
+        TreeMap<String, Double> tp = new TreeMap<String, Double>();
+        //for(int i = 0; i < ) {}
         System.out.println();
         return 0;
     }
+
+    /* public double[] arrayListToArr(ArrayList listVect) {
+        
+    } */
 
 }
