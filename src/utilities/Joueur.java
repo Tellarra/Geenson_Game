@@ -23,7 +23,11 @@ public class Joueur {
 	this.nbJoueur = nbJoueur;
 	this.position[0] = 0;
 	this.position[1] = 0;
-    }
+	}
+
+	public Joueur() {
+		//Constructeur vide
+	}
     
     /**
 	 * Setter
@@ -39,15 +43,15 @@ public class Joueur {
 	 * @return position
 	 */
     public int[] getPosition() {
-	return this.position;
+		return this.position;
     }
 	
 	/**
 	 * Getter Dé Special
 	 * @return deSpe
 	 */
-    public Des getDe() {
-	return this.deSpe;
+    public Des getDeSpe() {
+		return this.deSpe;
     }
 	
 	/**
@@ -55,7 +59,7 @@ public class Joueur {
 	 * @return deNormal
 	 */
     public Des getDeNormal(){
-	return this.deNormal;
+		return this.deNormal;
     }
 	
 	/**
@@ -63,7 +67,7 @@ public class Joueur {
 	 * @return pseudo
 	 */
     public String getPseudo() {
-	return this.pseudo;
+		return this.pseudo;
     }
 	
 	/**

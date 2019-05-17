@@ -2,7 +2,7 @@ package src.utilities;
 /**
  * Classe qui crée la cellule bonus
  */
-public class BonusCell extends Cell{
+public class BonusCell extends Cells {
 	//Variable
 	protected Joueur j;
 	

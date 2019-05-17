@@ -7,6 +7,11 @@ import java.util.Scanner;
  * Main classe qui s'occupe de démarrer le jeu
  */
 public class Main {
+    /**
+     * Main
+     * @param args Le tableau de la ligne de commande
+     * @throws Exception pour éviter les erreurs de lecture de args
+     */
     public static void main(String[] args) throws Exception {
         String filePath = "";
         int nbPlayers = 0;
@@ -40,50 +45,51 @@ public class Main {
         }
         
         GameOn game = new GameOn(nbPlayers, nbTry, nbRes);
-
-        Board plateau = new Board();
-		plateau.affichage();
-
-        /* try {
-            
-            //System.out.println(wordsVectors.get("ordinateur"));
-        } catch (Exception e) {
-            System.out.println("Votre fichier w2v_final3 n'est pas dans le répertoir spécifié");
-        }  */
-
+        
         ReadFile rf = new ReadFile();
         wordsVectors = rf.readVectors(filePath);
-        //String wordToGuess = game.getRandWord(wordsVectors);
-        
-        while(game.getGameOn() != false) {
-            game.showWords("ordinateur", wordsVectors); 
-        } 
-         
+        Board b = new Board();
+        Joueur[] listJoueur = preparation(nbPlayers);
+        int[] initial = {0,0};
+        NormalCell first = (NormalCell)b.getCell(initial);
+        for(int i=0; i<listJoueur.length; i++) {
+        	first.setAllJ(i); 	
+        }
+        GameTurn.allTurns(true, listJoueur, b);        
 
     }
 
-   /*  public void tours(int nbPlayers) {
+    /**
+     * Prépare les paramètres du jeu
+     * @param nbPlayers Nombre de joueurs
+     * @return La liste des joueurs
+     */
+    public static Joueur[] preparation(int nbPlayers) {
         Scanner sc = new Scanner(System.in);
-        Joueur listJoueur = new Joueur[nbPlayers];
+        Joueur[] listJoueur = new Joueur[nbPlayers];
         for (int i = 0; i < nbPlayers; i++) {
             System.out.println("Donnez votre nom joueur:" + i);
             String nameP = sc.nextLine();
-            System.out.println("Choisissez votre type de dé: 1.Dé \n2.Dé spécial");
+            System.out.println("Vous avez un dé normal à 4 faces et un dé bonus. Choisissez votre dé bonus.(1 ou 2)");
+            System.out.println("1. Cases du dé : 0,0,4,5");
+            int[] valeursSpe1 = {0,0,4,5};
+            Des spe1 = new Des(valeursSpe1);
+            System.out.println("2. Cases du dé : 2,2,2,2");
+            int[] valeursSpe2 = {2,2,2,2};
+            Des spe2 = new Des(valeursSpe2);
             int deP = Integer.parseInt(sc.nextLine());
-            Joueurs j = new Joueur();
-            listJoueur[i] = j;
+            if(deP == 1) {
+                Joueur j = new Joueur(nameP, spe1, i);
+                listJoueur[i] = j;
+            } else if(deP == 2) {
+                Joueur j = new Joueur(nameP, spe2, i);
+                listJoueur[i] = j;
+            }
+            
+        
         }
+        return listJoueur;
 
-        //Tour
-        boolean tourJ = true;
-        count = 0;
-        while(tourJ) {
-            tourJ = false;
-            Joueur actualJ = listJoueur[count];
-            //Joueur lance dé
-            actualJ.mouvement(actualJ.getDe());
-            System.out.println(actualJ.getPos());
-            //switch() {}
-        }
-    } */
+      
+    } 
 }

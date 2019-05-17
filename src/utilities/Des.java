@@ -43,6 +43,6 @@ public class Des {
 		for (int i=0; i<this.valeurs.length; i++) {
 			System.out.print(this.valeurs[i] + " ");
 		}
-		System.out.println();
+		System.out.println("");
 	}
 }

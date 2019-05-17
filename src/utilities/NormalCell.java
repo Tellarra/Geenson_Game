@@ -5,7 +5,7 @@ import src.utilities.GameOn;
 /**
  * Classe qui crée la cellule normal du plateau
  */
-public class NormalCell extends Cell{
+public class NormalCell extends Cells {
 	//Variable
 	protected String[] allJ = new String[5];
 	

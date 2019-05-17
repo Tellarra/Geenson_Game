@@ -4,7 +4,7 @@ package src.utilities;
  */
 public class Board {
 	//Variables 
-	protected Cell[][] currentBoard = new Cell[5][5];
+	protected Cells[][] currentBoard = new Cells[5][5];
 	
 	/**
 	 * Constructeur
@@ -15,7 +15,7 @@ public class Board {
 			for(int j=0; j<this.currentBoard[i].length; j++) {
 				pos[0] = i;
 				pos[1] = j;
-				if(j==4) {
+				if ((j==4) && (i%2 == 0)) {
 					this.currentBoard[i][j] = new MalusCell(pos);
 				} else {
 					if(j==2) {
@@ -26,6 +26,15 @@ public class Board {
 				}
 			}
 		}
+	}
+	
+	/**
+	 * Getter
+	 * @pos position de la cellule
+	 * @return cellule
+	 */
+	public Cells getCell(int[] pos) {
+		return this.currentBoard[pos[0]][pos[1]];
 	}
 	
 	/**

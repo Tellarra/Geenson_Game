@@ -2,10 +2,8 @@ package src.utilities;
 /**
  * Classe qui crée la cellule avec un malus
  */
-public class MalusCell extends Cell{
-	//Variable
-	protected Joueur j;
-	
+public class MalusCell extends Cells {	
+	protected Joueur j = new Joueur();
 	/**
 	 * Constructeur
 	 * @param pos position de la cellule
