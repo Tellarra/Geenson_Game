@@ -5,7 +5,6 @@ import java.io.FileReader;
 import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.HashMap;
-//import src.utilities.*;
 
 public class ReadFile {
     /**
@@ -13,8 +12,9 @@ public class ReadFile {
      * Pour chaque ligne, on va séparer en key value
      * Key = Le mot
      * Value = Les vecteurs
-     * @return un Hashmap <String, Arraylist <Double> >
-     * @throws Exception
+     * @param filePath Le chemin pour le fichier w2v_final3
+     * @return un Hashmap
+     * @throws Exception pour éviter les erreurs de lecture de chemin
      */
     public HashMap readVectors(String filePath) throws Exception {
         File file = new File(filePath + "/w2v_final3");
